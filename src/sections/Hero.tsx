@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { GitBranch, Link, Mail, FileText, Download, ExternalLink } from "lucide-react";
 import { AuroraBackground } from "../components/ui/AuroraBackground";
+import karanImage from "src/assets/img/karan1.png";
 
 const SOCIAL_LINKS = [
   { icon: GitBranch, href: "https://github.com/karantiwari35155-creator", label: "GitHub" },
@@ -65,7 +66,7 @@ export function Hero() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-accent via-highlight to-transparent animate-spin-slow opacity-50 blur-md" />
               <div className="absolute inset-2 rounded-full bg-surface border border-text/10 z-10 overflow-hidden glass-card flex items-center justify-center">
                 <img 
-                  src="src/assets/img/karan1.png" 
+                  src={karanImage} 
                   alt="Karan Tiwari"
                   className="w-[110%] h-[110%] object-cover object-center opacity-90 mix-blend-luminosity hover:mix-blend-normal rotate-3 translate-x-3 translate-y-4 transition-all duration-700"
                 />
