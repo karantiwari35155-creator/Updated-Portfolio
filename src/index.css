@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background-dark: #0B1120;
+  --color-surface-dark: #111827;
+  --color-accent-dark: #3B82F6;
+  --color-highlight-dark: #22D3EE;
+  --color-text-dark: #F9FAFB;
+  --color-muted-dark: #9CA3AF;
+
+  --color-background-light: #F8FAFC;
+  --color-surface-light: #FFFFFF;
+  --color-accent-light: #2563EB;
+  --color-highlight-light: #0EA5E9;
+  --color-text-light: #111827;
+  --color-muted-light: #6B7280;
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-highlight: var(--highlight);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background-light);
+    --surface: var(--color-surface-light);
+    --accent: var(--color-accent-light);
+    --highlight: var(--color-highlight-light);
+    --text: var(--color-text-light);
+    --muted: var(--color-muted-light);
+  }
+
+  .dark {
+    --background: var(--color-background-dark);
+    --surface: var(--color-surface-dark);
+    --accent: var(--color-accent-dark);
+    --highlight: var(--color-highlight-dark);
+    --text: var(--color-text-dark);
+    --muted: var(--color-muted-dark);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-surface/50 backdrop-blur-md border border-text/10 shadow-xl;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-full bg-gradient-to-r from-accent to-highlight text-white font-medium hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)];
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-full bg-surface/50 backdrop-blur-md border border-text/10 font-medium hover:scale-105 transition-transform duration-300;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
